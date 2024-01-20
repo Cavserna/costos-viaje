@@ -1,0 +1,60 @@
+
+<form #formulario="ngForm" (submit)="calcularViaje(formulario.value)">
+    <section class="" >
+        <div class="flex justify-center container py-24 mx-auto ">
+          <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col   mt-10 md:mt-0">
+
+            <div class="relative mb-4">
+              <label class="leading-7 text-sm text-gray-600">Kilómetros por Galón</label>
+              <input type="text"   name="kGalon" ngModel class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+    
+            <div class="relative mb-4">
+                <label class="leading-7 text-sm text-gray-600">Costo del Galón</label>
+                <input type="text" name="costoGalon" ngModel class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            
+            <div class="relative mb-4">
+              <label class="leading-7 text-sm text-gray-600">Distancia en Kilómetros</label>
+              <input type="text" name="KilometroDestino" ngModel class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+    
+            <div class="relative mb-4">
+                <label class="leading-7 text-sm text-gray-600">Número de Peajes</label>
+                <input type="text" name="cantidadPeajes" ngModel class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+    
+            <div class="relative mb-4">
+                <label class="leading-7 text-sm text-gray-600">Costo de Peaje</label>
+                <input type="text" name="costoPeaje" ngModel class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+
+            <button  type="submit" value="Enviar" class="text-white bg-teal-500 border-0 py-2 px-8 focus:outline-none hover:bg-teal-700 rounded text-lg">Consultar</button>
+          </div>
+        </div>
+      </section>
+</form>
+
+<section class="text-gray-600 body-font " >
+  <div >
+    <div class="flex flex-wrap flex justify-center  -m-4 text-center ">
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900"> {{costoTotal | currency}}</h2>
+        <p class="leading-relaxed">Costo del Viaje</p>
+      </div>
+      <div class="p-4 sm:w-1/4 w-1/2">
+        <h2 class="title-font font-medium sm:text-4xl text-3xl text-gray-900">{{horasViaje}} </h2>
+        <p class="leading-relaxed">Horas de Viaje</p>
+      </div>
+
+      @if (horasViaje >=12) {
+        <div class="p-4 sm:w-1/4 w-1/2">
+          <h2 class="title-font font-medium sm:text-4xl text-3xl text-red-600"> CUIDADO </h2>
+          <p class="leading-relaxed">Su Viaje dura más de 12 horas, tome descanzos</p>
+        </div>
+      }
+      
+    </div>
+  </div>
+</section>
+
